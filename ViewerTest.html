@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no" />
+    <meta charset="utf-8">
+    <title>Basic Viewer</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- The Viewer CSS -->
+    <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/style.min.css" type="text/css">
+
+    <!-- Developer CSS -->
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #MyViewerDiv {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-color: #F0F8FF;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Input token and a document urn here -->
+    <label for="token" class="label-token"> Token: </label>
+    <input id="token" type="text" name="token" /> &nbsp;
+    <label for="urn" class="label-urn"> urn: </label>
+    <input id="urn" type="text" name="urn" /> &nbsp;
+    <button type="button" onclick="buttonViewClicked()">View</button> 
+    <p>Sample urn for testing</p>
+    <p>urnBIM360Sample = "dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLjg1elV4RDFfUVd1TTNhTWd2VkxxUXc_dmVyc2lvbj0x";</p>
+    <p>urnA360Sample   = "dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLjF0VERNbUhQVHMyX0N1RkU4RnZPdmc_dmVyc2lvbj0x";</p>
+
+    <!-- The Viewer will be instantiated here -->
+    <div id="MyViewerDiv"></div>
+
+    <!-- The Viewer JS -->
+    <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/three.min.js"></script>
+    <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/viewer3D.min.js"></script>
+
+    <!-- Developer JS -->
+    <script src="viewerBasic.js"></script>
+
+    <script>
+        // Sample urn for testing
+        //var urnBIMSample = "dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLjg1elV4RDFfUVd1TTNhTWd2VkxxUXc_dmVyc2lvbj0x";
+        //var urnA360Sample = "dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLjF0VERNbUhQVHMyX0N1RkU4RnZPdmc_dmVyc2lvbj0x";
+
+        // var documentId = 'urn:' + urnBIMSample;
+
+        function buttonViewClicked() {
+            var token = $('#token').val();
+            var urn = $('#urn').val();
+            viewByTokenAndUrn(token, urn, "MyViewerDiv"); 
+        }
+
+    </script>
+</body>
+
+</html>
+
